@@ -1,17 +1,22 @@
-radio.onReceivedNumber(function (receivedNumber) {
-    if (receivedNumber == 0) {
-        xPosition += 1
-    } else if (receivedNumber == 1) {
-        xPosition += -1
-    } else if (receivedNumber == 2) {
-        yPosition += 1
+function position (x: number, y: number) {
+    led.unplot(xPosition, yPosition - 5)
+    xPosition = x
+    yPosition = y
+}
+radio.onReceivedValue(function (name, value) {
+    if (name == "xPos") {
+        position(value, yPosition)
+    } else if (name == "yPos") {
+        position(xPosition, value)
     } else {
-        yPosition += -1
+    	
     }
 })
-radio.setGroup(1)
+let yPosition = 0
 let xPosition = 0
-let yPosition = -5
+radio.setGroup(1)
+xPosition = 0
+yPosition = 0
 basic.forever(function () {
-    led.plot(xPosition, yPosition)
+    led.plot(xPosition, yPosition - 5)
 })
