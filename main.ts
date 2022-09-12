@@ -5,9 +5,9 @@ function position (x: number, y: number) {
 }
 radio.onReceivedValue(function (name, value) {
     if (name == "xPos") {
-        position(xPosition, value)
-    } else if (name == "yPos") {
         position(value, yPosition)
+    } else if (name == "yPos") {
+        position(xPosition, value)
     }
     if (name == "interact" && value == 3) {
         showNr = true
@@ -27,11 +27,11 @@ let unplotonce = true
 basic.forever(function () {
     if (input.lightLevel() > 100) {
         led.plot(objectiveX, objectiveY)
+        basic.pause(500)
     } else if (!(unplotonce)) {
         radio.sendValue("xTarget", objectiveX)
         radio.sendValue("yTarget", objectiveY)
     }
-    basic.pause(500)
     if (unplotonce) {
         unplotonce = false
         led.unplot(objectiveX, objectiveY)
