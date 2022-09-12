@@ -14,13 +14,11 @@ radio.onReceivedValue(function (name, value) {
         basic.showNumber(codelockNr)
     }
 })
-let showNr = false
-let codelockNr = 0
 let yPosition = 0
 let xPosition = 0
+let showNr = false
+let codelockNr = 0
 radio.setGroup(1)
-xPosition = 0
-yPosition = 0
 let objectiveX = 1
 let objectiveY = 2
 codelockNr = 0
