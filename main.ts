@@ -30,7 +30,7 @@ basic.forever(function () {
         basic.pause(500)
     } else if (!(unplotonce)) {
         radio.sendValue("xTarget", objectiveX)
-        radio.sendValue("yTarget", objectiveY)
+        radio.sendValue("yTarget", objectiveY + 5)
     }
     if (unplotonce) {
         unplotonce = false
@@ -38,7 +38,7 @@ basic.forever(function () {
     }
     led.plot(xPosition, yPosition - 5)
     if (showNr) {
-        if (xPosition > 5 || yPosition - 5 < 5) {
+        if (xPosition > 5 || yPosition < 5) {
             basic.showNumber(codelockNr)
         }
     }
