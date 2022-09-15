@@ -18,23 +18,18 @@ let yPosition = 0
 let xPosition = 0
 let showNr = false
 let codelockNr = 0
+let Lightlevel = input.lightLevel()
+basic.pause(100)
 radio.setGroup(10)
 let objectiveX = 1
 let objectiveY = 2
 codelockNr = 0
 showNr = false
-let unplotonce = true
 basic.forever(function () {
     if (input.lightLevel() > 180) {
         led.plot(objectiveX, objectiveY)
-        basic.pause(500)
-    } else if (!(unplotonce)) {
         radio.sendValue("xTarget", objectiveX)
         radio.sendValue("yTarget", objectiveY + 5)
-    }
-    if (unplotonce) {
-        unplotonce = false
-        led.unplot(objectiveX, objectiveY)
     }
     led.plot(xPosition, yPosition - 5)
     if (showNr) {
