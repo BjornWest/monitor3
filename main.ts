@@ -23,7 +23,7 @@ basic.pause(100)
 radio.setGroup(10)
 let objectiveX = 1
 let objectiveY = 2
-codelockNr = 0
+codelockNr = 3
 showNr = false
 basic.forever(function () {
     if (input.lightLevel() > 180) {
